@@ -10,12 +10,17 @@ package projeto.pi.basepi;
  */
 public class BasePi {
     
-    
-    Login logar = new Login();
+
     
 
     
    
     public static void main(String[] args) {
+        
+            
+    Login logar = new Login();
+  
+    logar.setVisible(true);
+    
     }
 }

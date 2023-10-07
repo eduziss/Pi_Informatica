@@ -99,6 +99,11 @@ public class CadastroProduto extends javax.swing.JFrame {
         lblCdpPreco.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
         lblCdpPreco.setText("Preço:");
 
+        txtCdpNome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txtCdpNomeMouseExited(evt);
+            }
+        });
         txtCdpNome.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtCdpNomeKeyTyped(evt);
@@ -223,6 +228,13 @@ public class CadastroProduto extends javax.swing.JFrame {
 
     private void txtCdpPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCdpPrecoActionPerformed
         // TODO add your handling code here:
+            Verficacao v = new Verficacao();
+
+        v.verificacaoFloat(txtCdpPreco);
+
+        
+        
+        
     }//GEN-LAST:event_txtCdpPrecoActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -232,7 +244,7 @@ public class CadastroProduto extends javax.swing.JFrame {
 
     private void txtCdpMarcaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCdpMarcaKeyTyped
         // TODO add your handling code here:
-     
+
     }//GEN-LAST:event_txtCdpMarcaKeyTyped
 
     private void txtCdpEstoqueKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCdpEstoqueKeyTyped
@@ -246,9 +258,6 @@ public class CadastroProduto extends javax.swing.JFrame {
     private void txtCdpNomeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCdpNomeKeyTyped
         // TODO add your handling code here:
 
-        Verficacao v = new Verficacao();
-
-        v.verificacaoTexto(txtCdpNome);
     }//GEN-LAST:event_txtCdpNomeKeyTyped
 
     private void txtCdpDescKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCdpDescKeyTyped
@@ -259,9 +268,9 @@ public class CadastroProduto extends javax.swing.JFrame {
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
 
-        if (txtCdpMarca.getText().equalsIgnoreCase("") && txtCdpEstoque.getText().equalsIgnoreCase("") && txtCdpNome.getText().equalsIgnoreCase("") && txtCdpPreco.getText().equalsIgnoreCase("")) {
+        if (txtCdpMarca.getText().equalsIgnoreCase("") || txtCdpEstoque.getText().equalsIgnoreCase("") || txtCdpNome.getText().equalsIgnoreCase("") || txtCdpPreco.getText().equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(rootPane, "Preencha Todos os Campos!!");
-            return;
+          
         } else {
 
         }
@@ -277,14 +286,23 @@ public class CadastroProduto extends javax.swing.JFrame {
 
     private void txtCdpMarcaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCdpMarcaMouseExited
         // TODO add your handling code here:
-        
-          Verficacao v = new Verficacao();
+
+        Verficacao v = new Verficacao();
 
         v.verificacaoTexto(txtCdpMarca);
-        
-        
-        
+
+
     }//GEN-LAST:event_txtCdpMarcaMouseExited
+
+    private void txtCdpNomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCdpNomeMouseExited
+        // TODO add your handling code here:
+
+        Verficacao v = new Verficacao();
+
+        v.verificacaoTexto(txtCdpNome);
+
+
+    }//GEN-LAST:event_txtCdpNomeMouseExited
 
     /**
      * @param args the command line arguments
@@ -340,7 +358,6 @@ public class CadastroProduto extends javax.swing.JFrame {
     private javax.swing.JTextField txtCdpNome;
     private javax.swing.JFormattedTextField txtCdpPreco;
     // End of variables declaration//GEN-END:variables
-
 
     public void verificacaoNumeros(JTextField txtN) {
 

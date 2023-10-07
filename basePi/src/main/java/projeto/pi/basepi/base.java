@@ -102,6 +102,11 @@ public class base extends javax.swing.JFrame {
         jScrollPane2.setViewportView(tblCliente);
 
         btnAtualizarCliente.setText("Atualizar");
+        btnAtualizarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtualizarClienteActionPerformed(evt);
+            }
+        });
 
         btnDetalhesCliente.setText("Detalhes");
 
@@ -480,6 +485,17 @@ public class base extends javax.swing.JFrame {
         AtualizarPedido ap = new AtualizarPedido();
         ap.setVisible(true);
     }//GEN-LAST:event_btnAtualizarPedidoActionPerformed
+
+    private void btnAtualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarClienteActionPerformed
+        // TODO add your handling code here:
+        
+        
+        AtualizacaoCliente atualizarCliente = new AtualizacaoCliente();
+        
+        atualizarCliente.setVisible(true);
+        
+        
+    }//GEN-LAST:event_btnAtualizarClienteActionPerformed
 
     /**
      * @param args the command line arguments

@@ -23,7 +23,7 @@ public class Verficacao {
             }
 
         } catch (IllegalArgumentException e) {
-            JOptionPane.showMessageDialog(null, "Digite um valor para o campo " + txt.getName());
+            JOptionPane.showMessageDialog(null, "Digite um valor para o campo ");
             txt.setBackground(Color.red);
         }
 
@@ -47,5 +47,29 @@ public class Verficacao {
         }
 
     }
+    
+    
+       public void verificacaoFloat(JTextField txtNU) {
+
+        String id = txtNU.getText();
+
+        if (!txtNU.getText().trim().equals("")) {
+            try {
+
+                Float.valueOf(id);
+
+            } catch (Exception e) {
+                //Escreva aqui a mensagem para o usuário
+                JOptionPane.showMessageDialog(null, "Campo número permite somente números!");
+                txtNU.setBackground(Color.red);
+            }
+
+        }
+
+    }
+    
+    
+    
+    
     
 }

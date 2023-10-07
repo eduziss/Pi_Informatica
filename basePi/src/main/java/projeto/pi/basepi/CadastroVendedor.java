@@ -53,6 +53,12 @@ public class CadastroVendedor extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Nome:");
 
+        txtNome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txtNomeMouseExited(evt);
+            }
+        });
+
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Data de Nascimento:");
 
@@ -75,6 +81,11 @@ public class CadastroVendedor extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("Sexo:");
 
+        txtSenha.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txtSenhaMouseExited(evt);
+            }
+        });
         txtSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSenhaActionPerformed(evt);
@@ -90,6 +101,16 @@ public class CadastroVendedor extends javax.swing.JFrame {
         jLabel3.setText("Senha:");
 
         jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("##/#//###"))));
+        jFormattedTextField1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jFormattedTextField1MouseExited(evt);
+            }
+        });
+        jFormattedTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextField1ActionPerformed(evt);
+            }
+        });
         jFormattedTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jFormattedTextField1KeyTyped(evt);
@@ -116,18 +137,18 @@ public class CadastroVendedor extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(jLabel4)))
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(28, Short.MAX_VALUE))))
+                        .addContainerGap(34, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -252,10 +273,7 @@ public class CadastroVendedor extends javax.swing.JFrame {
     private void txtEmailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyTyped
         // TODO add your handling code here:
         
-                
-        Verficacao v = new Verficacao();
-        
-        v.verificacaoTexto(txtEmail);
+
     }//GEN-LAST:event_txtEmailKeyTyped
 
     private void txtSenhaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyTyped
@@ -266,16 +284,51 @@ public class CadastroVendedor extends javax.swing.JFrame {
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
         // TODO add your handling code here:
-        
-          
-        if(txtNome.getText().equalsIgnoreCase("") && txtSenha.getPassword() == null && txtEmail.getText().equalsIgnoreCase("")&&jFormattedTextField1.getText().equalsIgnoreCase("")){
+             
+        if(txtNome.getText().equalsIgnoreCase("") || txtSenha.getPassword() == null || txtEmail.getText().equalsIgnoreCase("") || jFormattedTextField1.getText().equalsIgnoreCase("")){
             JOptionPane.showMessageDialog(rootPane, "Preencha Todos os Campos!!");
-            return;
+           
         }else{
             
         }
         
     }//GEN-LAST:event_btnConfirmarActionPerformed
+
+    private void txtNomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNomeMouseExited
+        // TODO add your handling code here:
+        
+        
+                        
+        Verficacao v = new Verficacao();
+        
+        v.verificacaoTexto(txtNome);
+        
+        
+    }//GEN-LAST:event_txtNomeMouseExited
+
+    private void jFormattedTextField1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTextField1MouseExited
+        // TODO add your handling code here:
+  
+    }//GEN-LAST:event_jFormattedTextField1MouseExited
+
+    private void txtSenhaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSenhaMouseExited
+        // TODO add your handling code here:
+                        
+        Verficacao v = new Verficacao();
+        
+        v.verificacaoTexto(txtSenha);
+        
+    }//GEN-LAST:event_txtSenhaMouseExited
+
+    private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
+        // TODO add your handling code here:
+        
+          Verficacao v = new Verficacao();
+        
+        v.verificacaoTexto(jFormattedTextField1);
+        
+        
+    }//GEN-LAST:event_jFormattedTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
